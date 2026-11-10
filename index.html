@@ -299,7 +299,7 @@
   </footer>
   <script>
     // Add the team's real inbox here before launch, e.g. "hello@yourdomain.com".
-    const CONTACT_EMAIL = "ADD_TEAM_EMAIL_HERE";
+    const CONTACT_EMAIL = "maemedia28@gmail.com";
     const menuBtn = document.getElementById("menuBtn");
     const navlinks = document.getElementById("navlinks");
     menuBtn.addEventListener("click", () => {
@@ -314,8 +314,8 @@
     document.getElementById("contactForm").addEventListener("submit", event => {
       event.preventDefault();
       if (!event.currentTarget.reportValidity()) return;
-      if (CONTACT_EMAIL === "ADD_TEAM_EMAIL_HERE") {
-        alert("The form works, but the team email has not been added yet. Open index.html and replace ADD_TEAM_EMAIL_HERE with your preferred inbox.");
+      if (CONTACT_EMAIL === "maemedia28@gmail.com") {
+        alert("The form works, but the team email has not been added yet. Open index.html and replace maemedia28@gmail.com with your preferred inbox.");
         return;
       }
       const data = new FormData(event.currentTarget);
