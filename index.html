@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,11 +93,9 @@
     textarea { min-height:115px; resize:vertical; }
     .contact-card .btn { width:100%; }
     .form-note { font-size:.76rem; color:#788198; line-height:1.5; margin:12px 0 0; }
-    .form-status { display:none; color:#235c42; font-size:.85rem; margin-top:12px; }
     footer { background:#0b142e; color:#b8c1d8; padding:25px 0; font-size:.82rem; }
     .footer-inner { display:flex; justify-content:space-between; gap:20px; align-items:center; }
     .footer-brand { color:white; font-weight:900; letter-spacing:-.05em; }
-
     .project-button { display:block; width:100%; padding:0; text-align:left; border:0; background:transparent; cursor:pointer; color:inherit; font:inherit; }
     .project-button:focus-visible { outline:3px solid var(--blue); outline-offset:4px; border-radius:var(--radius); }
     .project-hint { display:inline-flex; align-items:center; gap:7px; margin-top:15px; color:var(--blue); font-size:.82rem; font-weight:800; }
@@ -122,7 +121,6 @@
     body.modal-open { overflow:hidden; }
     @media (max-width:850px) { .team { grid-template-columns:1fr 1fr; } }
     @media (max-width:600px) { .team { grid-template-columns:1fr; } .ad-gallery { grid-template-columns:1fr; padding:0 16px 20px; } .modal-head { padding:18px 16px; } .modal-copy { padding:0 16px 16px; } .modal-backdrop { padding:10px; } }
-
     @media (max-width:850px) {
       .hero-grid, .about-grid, .contact-grid { grid-template-columns:1fr; gap:35px; }
       .hero { padding:75px 0; } .hero-art { min-height:300px; }
@@ -268,13 +266,29 @@
           <h2>Let’s make<br>something matter.</h2>
           <p class="section-intro">Have a project, a question, or an idea you’d like to explore? We’d love to hear about it.</p>
         </div>
-        <form class="contact-card" id="contactForm">
-          <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required placeholder="Name"></div>
-          <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
-          <div class="field"><label for="message">What are you thinking?</label><textarea id="message" name="message" required placeholder="Tell us a little about your idea..."></textarea></div>
-          <button class="btn" type="submit">Prepare inquiry <span aria-hidden="true">↗</span></button>
-          <p class="form-note">This opens a pre-filled email in your email app. Before publishing, replace the placeholder recipient in the site settings with your team’s preferred contact email.</p>
-          <p class="form-status" id="formStatus" role="status">Your email draft is ready.</p>
+
+        <form class="contact-card" action="https://formsubmit.co/maemedia28@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New MAE Media Website Inquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" autocomplete="name" required placeholder="Name">
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+          </div>
+
+          <div class="field">
+            <label for="message">What are you thinking?</label>
+            <textarea id="message" name="message" required placeholder="Tell us a little about your idea..."></textarea>
+          </div>
+
+          <button class="btn" type="submit">Send inquiry <span aria-hidden="true">↗</span></button>
+          <p class="form-note">Thanks for reaching out! Your message will be sent directly to the MAE Media team.</p>
         </form>
       </div>
     </section>
@@ -297,56 +311,51 @@
   <footer>
     <div class="wrap footer-inner"><div class="footer-brand">MAE MEDIA.</div><div>Creative thinking, made collaborative.</div><div>© <span id="year"></span> MAE Media</div></div>
   </footer>
+
   <script>
-    // Add the team's real inbox here before launch, e.g. "hello@yourdomain.com".
-    const CONTACT_EMAIL = "maemedia28@gmail.com";
     const menuBtn = document.getElementById("menuBtn");
     const navlinks = document.getElementById("navlinks");
+
     menuBtn.addEventListener("click", () => {
       const open = navlinks.classList.toggle("open");
       menuBtn.setAttribute("aria-expanded", String(open));
     });
+
     navlinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
       navlinks.classList.remove("open");
       menuBtn.setAttribute("aria-expanded", "false");
     }));
+
     document.getElementById("year").textContent = new Date().getFullYear();
-    document.getElementById("contactForm").addEventListener("submit", event => {
-      event.preventDefault();
-      if (!event.currentTarget.reportValidity()) return;
-      if (CONTACT_EMAIL === "maemedia28@gmail.com") {
-        alert("The form works, but the team email has not been added yet. Open index.html and replace maemedia28@gmail.com with your preferred inbox.");
-        return;
-      }
-      const data = new FormData(event.currentTarget);
-      const subject = encodeURIComponent("MAE Media inquiry from " + data.get("name"));
-      const body = encodeURIComponent("Name: " + data.get("name") + "\nEmail: " + data.get("email") + "\n\n" + data.get("message"));
-      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-      document.getElementById("formStatus").style.display = "block";
-    });
 
     const blossomModal = document.getElementById("blossomModal");
     const blossomTrigger = document.getElementById("blossomProject");
     const closeBlossom = document.getElementById("closeBlossomModal");
+
     function openBlossomModal() {
       blossomModal.classList.add("open");
       document.body.classList.add("modal-open");
       closeBlossom.focus();
     }
+
     function closeBlossomModal() {
       blossomModal.classList.remove("open");
       document.body.classList.remove("modal-open");
       blossomTrigger.focus();
     }
+
     blossomTrigger.addEventListener("click", openBlossomModal);
     closeBlossom.addEventListener("click", closeBlossomModal);
+
     blossomModal.addEventListener("click", event => {
       if (event.target === blossomModal) closeBlossomModal();
     });
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape" && blossomModal.classList.contains("open")) closeBlossomModal();
-    });
 
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && blossomModal.classList.contains("open")) {
+        closeBlossomModal();
+      }
+    });
   </script>
 </body>
 </html>
