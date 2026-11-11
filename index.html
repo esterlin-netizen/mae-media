@@ -24,7 +24,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -35,7 +34,6 @@
     }
 
     a { color: inherit; text-decoration: none; }
-
     button, input, textarea { font: inherit; }
 
     .wrap {
@@ -621,7 +619,7 @@
 
     .footer-email:hover { color: #aebdff; }
 
-    /* Blossom campaign gallery */
+    /* Project galleries */
 
     .modal-backdrop {
       display: none;
@@ -666,6 +664,7 @@
       color: var(--navy);
       font-size: 1.5rem;
       cursor: pointer;
+      flex-shrink: 0;
     }
 
     .modal-close:hover { background: #dce3fa; }
@@ -675,6 +674,13 @@
       padding: 0 28px 18px;
       line-height: 1.65;
       margin: 0;
+    }
+
+    .modal-copy a {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .ad-gallery {
@@ -724,17 +730,13 @@
       }
 
       .section-head { display: block; }
-
       .section-intro { margin-top: 18px; }
-
       .team { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 600px) {
       .wrap { width: min(100% - 32px, 1160px); }
-
       nav { height: 68px; }
-
       .menu-btn { display: block; }
 
       .navlinks {
@@ -752,7 +754,6 @@
       }
 
       .navlinks.open { display: flex; }
-
       .nav-cta { text-align: center; }
 
       .hero { padding: 66px 0 58px; }
@@ -767,9 +768,7 @@
       }
 
       .orbit { width: 260px; }
-
       .float-tag { font-size: .72rem; }
-
       section { padding: 70px 0; }
 
       .services, .work-grid, .team {
@@ -784,9 +783,7 @@
       }
 
       .modal-head { padding: 18px 16px; }
-
       .modal-copy { padding: 0 16px 16px; }
-
       .modal-backdrop { padding: 10px; }
 
       .footer-inner {
@@ -829,10 +826,8 @@
 
     <section class="hero" id="home">
       <div class="wrap hero-grid">
-
         <div>
           <div class="eyebrow">Creative thinking. Clear strategy. Real impact.</div>
-
           <h1>Make your<br><span>mark.</span></h1>
 
           <p class="hero-copy">
@@ -851,11 +846,9 @@
               <div class="mae-stamp">MAE.</div>
             </div>
           </div>
-
           <div class="float-tag tag-one">Ideas with intention ✳</div>
           <div class="float-tag tag-two">Strategy meets creativity</div>
         </div>
-
       </div>
     </section>
 
@@ -863,7 +856,6 @@
 
     <section id="about">
       <div class="wrap about-grid">
-
         <div>
           <div class="kicker">A little about us</div>
           <h2>Good ideas<br>move people.</h2>
@@ -878,7 +870,6 @@
             From research and audience insights to campaign concepts and content, we bring an intentional approach to every project.
           </p>
         </div>
-
       </div>
     </section>
 
@@ -886,7 +877,6 @@
 
     <section id="services" style="background:#fff">
       <div class="wrap">
-
         <div class="section-head">
           <div>
             <div class="kicker">What we bring to the table</div>
@@ -899,7 +889,6 @@
         </div>
 
         <div class="services">
-
           <article class="service">
             <div class="service-icon">⌕</div>
             <h3>Research & insights</h3>
@@ -917,7 +906,6 @@
             <h3>Creative & content</h3>
             <p>Brand storytelling, social content concepts, and creative direction that bring a strategy to life.</p>
           </article>
-
         </div>
       </div>
     </section>
@@ -926,7 +914,6 @@
 
     <section class="work-section" id="work">
       <div class="wrap">
-
         <div class="section-head">
           <div>
             <div class="kicker">Selected projects</div>
@@ -944,7 +931,6 @@
 
           <article class="project">
             <button class="project-button" type="button" id="blossomProject" aria-haspopup="dialog" aria-controls="blossomModal">
-
               <div class="project-art blossom">
                 <div class="project-logo">BLOOM<br>WITH CARE</div>
               </div>
@@ -955,34 +941,25 @@
                 <p>A campaign concept for a hospital-based florist, focused on the role flowers can play in expressing care and support.</p>
                 <span class="project-hint">View campaign ads <span aria-hidden="true">↗</span></span>
               </div>
-
             </button>
           </article>
 
-          <!-- United Safety -->
+          <!-- SIBC Project - Clickable -->
 
-         <div class="project-card">
-  <div class="project-image">
-    <img src="YOUR-IMAGE-URL-HERE" alt="SIBC Consulting Projects">
-  </div>
+          <article class="project">
+            <button class="project-button" type="button" id="sibcProject" aria-haspopup="dialog" aria-controls="sibcModal">
+              <div class="project-art safety">
+                <div class="project-logo">SIBC<br>CONSULTING</div>
+              </div>
 
-  <div class="project-content">
-    <div class="kicker">Consulting & Strategy</div>
-    <h3>Student International Business Council</h3>
-
-    <p>
-      Through Notre Dame's Student International Business Council (SIBC),
-      our team served as Travel Analysts and Project Leaders, collaborating
-      on consulting projects for leading brands including P&G and KPMG.
-      We developed strategic recommendations and creative solutions
-      to address real-world business challenges.
-    </p>
-
-    <a href="https://www.sibc.nd.edu/" target="_blank" rel="noopener noreferrer">
-      Explore SIBC ↗
-    </a>
-  </div>
-</div>
+              <div class="project-body">
+                <div class="project-type">Consulting & strategy</div>
+                <h3>Student International Business Council</h3>
+                <p>Our team served as Travel Analysts and Project Leaders, collaborating on consulting projects for leading brands including P&G and KPMG.</p>
+                <span class="project-hint">View project work <span aria-hidden="true">↗</span></span>
+              </div>
+            </button>
+          </article>
 
           <!-- Poppi -->
 
@@ -1003,7 +980,6 @@
         <p class="work-note">
           These are student campaign concepts and coursework projects, not claims of commissioned client work.
         </p>
-
       </div>
     </section>
 
@@ -1011,7 +987,6 @@
 
     <section id="team">
       <div class="wrap">
-
         <div class="section-head">
           <div>
             <div class="kicker">Meet the team</div>
@@ -1077,34 +1052,32 @@
       </div>
     </section>
 
-    <!-- Contact - Email Only -->
+    <!-- Contact -->
 
- <section class="contact" id="contact">
-  <div class="wrap">
-    <div class="kicker">Have something in mind?</div>
-    <h2>Let's make<br>something matter.</h2>
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="kicker">Have something in mind?</div>
+        <h2>Let's make<br>something matter.</h2>
 
-    <p class="section-intro">
-      Have a project, a question, or an idea you'd like to explore?
-      We'd love to hear from you.
-    </p>
+        <p class="section-intro">
+          Have a project, a question, or an idea you'd like to explore?
+          We'd love to hear from you.
+        </p>
 
-    <a class="contact-email" href="mailto:maemedia28@gmail.com">
-      maemedia28@gmail.com ↗
-    </a>
+        <a class="contact-email" href="mailto:maemedia28@gmail.com">
+          maemedia28@gmail.com ↗
+        </a>
 
-    <p class="contact-address">
-      MAE Media | Marketing & Creative Strategy
-    </p>
-  </div>
-</section>
+        <p class="contact-address">
+          MAE Media | Marketing & Creative Strategy
+        </p>
+      </div>
+    </section>
 
     <!-- Blossom Gallery Modal -->
 
     <div class="modal-backdrop" id="blossomModal" role="dialog" aria-modal="true" aria-labelledby="blossomModalTitle">
-
       <div class="project-modal">
-
         <div class="modal-head">
           <div>
             <div class="kicker">Featured campaign</div>
@@ -1121,7 +1094,6 @@
         </p>
 
         <div class="ad-gallery">
-
           <figure>
             <img src="blossom-ad-1.png" alt="Blossom Floral Design advertisement featuring a pink and white bouquet and free patient-room delivery">
             <figcaption>Advertisement 1 · Bring comfort when it matters most</figcaption>
@@ -1131,8 +1103,54 @@
             <img src="blossom-ad-2.png" alt="Blossom Floral Design advertisement featuring a blue and white bouquet, get well card, and online ordering information">
             <figcaption>Advertisement 2 · Get well soon and patient delivery</figcaption>
           </figure>
-
         </div>
+      </div>
+    </div>
+
+    <!-- SIBC Consulting Gallery Modal -->
+
+    <div class="modal-backdrop" id="sibcModal" role="dialog" aria-modal="true" aria-labelledby="sibcModalTitle">
+      <div class="project-modal">
+        <div class="modal-head">
+          <div>
+            <div class="kicker">Consulting & strategy</div>
+            <h2 id="sibcModalTitle">Student International Business Council</h2>
+          </div>
+
+          <button class="modal-close" type="button" id="closeSibcModal" aria-label="Close SIBC gallery">
+            ×
+          </button>
+        </div>
+
+        <p class="modal-copy">
+          Through Notre Dame's Student International Business Council, our team served as Travel Analysts and Project Leaders, collaborating on consulting projects for leading brands including P&G and KPMG. Explore examples of our consulting work below.
+        </p>
+
+        <div class="ad-gallery">
+          <figure>
+            <img src="Screenshot%202026-11-01%20193945.png" alt="SIBC consulting project example 1">
+            <figcaption>SIBC Consulting Project · Example 1</figcaption>
+          </figure>
+
+          <figure>
+            <img src="Screenshot%202026-11-01%20194011.png" alt="SIBC consulting project example 2">
+            <figcaption>SIBC Consulting Project · Example 2</figcaption>
+          </figure>
+
+          <figure>
+            <img src="Screenshot%202026-11-01%20194124.png" alt="SIBC consulting project example 3">
+            <figcaption>SIBC Consulting Project · Example 3</figcaption>
+          </figure>
+
+          <figure>
+            <img src="Screenshot%202026-11-01%20194213.png" alt="SIBC consulting project example 4">
+            <figcaption>SIBC Consulting Project · Example 4</figcaption>
+          </figure>
+        </div>
+
+        <p class="modal-copy">
+          <a href="https://www.sibc.nd.edu/" target="_blank" rel="noopener noreferrer">Visit the SIBC Website ↗</a>
+        </p>
       </div>
     </div>
 
@@ -1142,9 +1160,7 @@
 
   <footer>
     <div class="wrap footer-inner">
-
       <div class="footer-brand">MAE MEDIA.</div>
-
       <div>Creative thinking, made collaborative.</div>
 
       <div>
@@ -1155,14 +1171,12 @@
       </div>
 
       <div>© <span id="year"></span> MAE Media</div>
-
     </div>
   </footer>
 
   <!-- JavaScript -->
 
   <script>
-
     // Mobile navigation
 
     const menuBtn = document.getElementById("menuBtn");
@@ -1203,7 +1217,6 @@
     }
 
     blossomTrigger.addEventListener("click", openBlossomModal);
-
     closeBlossom.addEventListener("click", closeBlossomModal);
 
     blossomModal.addEventListener("click", event => {
@@ -1212,12 +1225,46 @@
       }
     });
 
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape" && blossomModal.classList.contains("open")) {
-        closeBlossomModal();
+    // SIBC consulting gallery
+
+    const sibcModal = document.getElementById("sibcModal");
+    const sibcTrigger = document.getElementById("sibcProject");
+    const closeSibc = document.getElementById("closeSibcModal");
+
+    function openSibcModal() {
+      sibcModal.classList.add("open");
+      document.body.classList.add("modal-open");
+      closeSibc.focus();
+    }
+
+    function closeSibcModal() {
+      sibcModal.classList.remove("open");
+      document.body.classList.remove("modal-open");
+      sibcTrigger.focus();
+    }
+
+    sibcTrigger.addEventListener("click", openSibcModal);
+    closeSibc.addEventListener("click", closeSibcModal);
+
+    sibcModal.addEventListener("click", event => {
+      if (event.target === sibcModal) {
+        closeSibcModal();
       }
     });
 
+    // Escape key closes either gallery
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        if (blossomModal.classList.contains("open")) {
+          closeBlossomModal();
+        }
+
+        if (sibcModal.classList.contains("open")) {
+          closeSibcModal();
+        }
+      }
+    });
   </script>
 
 </body>
