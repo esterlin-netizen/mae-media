@@ -961,18 +961,21 @@
             </button>
           </article>
 
-          <!-- Poppi -->
+          <!-- Previous Class Projects - Clickable -->
 
           <article class="project">
-            <div class="project-art poppi">
-              <div class="project-logo">poppi!</div>
-            </div>
+            <button class="project-button" type="button" id="classProjects" aria-haspopup="dialog" aria-controls="classProjectsModal">
+              <div class="project-art poppi">
+                <div class="project-logo">CLASS<br>PROJECTS</div>
+              </div>
 
-            <div class="project-body">
-              <div class="project-type">Social & experiential concept</div>
-              <h3>Poppi Campus Campaign</h3>
-              <p>A campus-focused activation concept designed to build awareness and create an engaging brand moment.</p>
-            </div>
+              <div class="project-body">
+                <div class="project-type">Marketing strategy & brand development</div>
+                <h3>Previous Class Projects</h3>
+                <p>Marketing projects focused on product line extensions, brand strategy, and customer insights, including work for Red Bull and Urban Swirl.</p>
+                <span class="project-hint">View class projects <span aria-hidden="true">↗</span></span>
+              </div>
+            </button>
           </article>
 
         </div>
@@ -1154,6 +1157,49 @@
       </div>
     </div>
 
+    <!-- Previous Class Projects Gallery Modal -->
+
+    <div class="modal-backdrop" id="classProjectsModal" role="dialog" aria-modal="true" aria-labelledby="classProjectsModalTitle">
+      <div class="project-modal">
+        <div class="modal-head">
+          <div>
+            <div class="kicker">Previous class projects</div>
+            <h2 id="classProjectsModalTitle">Marketing Strategy & Brand Development</h2>
+          </div>
+
+          <button class="modal-close" type="button" id="closeClassProjectsModal" aria-label="Close class projects gallery">
+            ×
+          </button>
+        </div>
+
+        <p class="modal-copy">
+          A collection of marketing coursework exploring brand development, product line extensions, and consumer behavior. Projects include developing potential product line extensions for brands such as Red Bull, creating marketing strategies, and building customer profiles for Urban Swirl.
+        </p>
+
+        <div class="ad-gallery">
+          <figure>
+            <img src="Screenshot%202026-01-26%20144648.png" alt="Marketing class project example 1">
+            <figcaption>Marketing Strategy · Example 1</figcaption>
+          </figure>
+
+          <figure>
+            <img src="Screenshot%202026-01-26%20144704.png" alt="Marketing class project example 2">
+            <figcaption>Product Line Extensions · Example 2</figcaption>
+          </figure>
+
+          <figure>
+            <img src="Screenshot%202026-11-11%20081318.png" alt="Urban Swirl customer profile project">
+            <figcaption>Urban Swirl · Customer Profiles</figcaption>
+          </figure>
+
+          <figure>
+            <img src="Screenshot%202026-11-11%20081332.png" alt="Urban Swirl marketing strategy project">
+            <figcaption>Urban Swirl · Marketing Strategy</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <!-- Footer -->
@@ -1252,7 +1298,34 @@
       }
     });
 
-    // Escape key closes either gallery
+    // Previous class projects gallery
+
+    const classProjectsModal = document.getElementById("classProjectsModal");
+    const classProjectsTrigger = document.getElementById("classProjects");
+    const closeClassProjects = document.getElementById("closeClassProjectsModal");
+
+    function openClassProjectsModal() {
+      classProjectsModal.classList.add("open");
+      document.body.classList.add("modal-open");
+      closeClassProjects.focus();
+    }
+
+    function closeClassProjectsModal() {
+      classProjectsModal.classList.remove("open");
+      document.body.classList.remove("modal-open");
+      classProjectsTrigger.focus();
+    }
+
+    classProjectsTrigger.addEventListener("click", openClassProjectsModal);
+    closeClassProjects.addEventListener("click", closeClassProjectsModal);
+
+    classProjectsModal.addEventListener("click", event => {
+      if (event.target === classProjectsModal) {
+        closeClassProjectsModal();
+      }
+    });
+
+    // Escape key closes any open gallery
 
     document.addEventListener("keydown", event => {
       if (event.key === "Escape") {
@@ -1262,6 +1335,10 @@
 
         if (sibcModal.classList.contains("open")) {
           closeSibcModal();
+        }
+
+        if (classProjectsModal.classList.contains("open")) {
+          closeClassProjectsModal();
         }
       }
     });
